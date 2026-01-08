@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { api } from '@/lib/api';
 
 type RegisterType = 'patient' | 'doctor' | 'pharmacy';
 
-export default function AuthPage() {
+function AuthForm() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [isLogin, setIsLogin] = useState(true);
@@ -322,5 +322,17 @@ export default function AuthPage() {
                 )}
             </div>
         </div>
+    );
+}
+
+export default function AuthPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-accent-50 to-primary-100">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+            </div>
+        }>
+            <AuthForm />
+        </Suspense>
     );
 }

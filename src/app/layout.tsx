@@ -1,5 +1,15 @@
 import './globals.css';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#14b8a6' },
+    { media: '(prefers-color-scheme: dark)', color: '#0d9488' },
+  ],
+};
 
 export const metadata: Metadata = {
   title: 'CareOn - Health Monitoring System',
@@ -36,17 +46,6 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
     creator: '@careon',
   },
-
-  // Mobile & PWA
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#14b8a6' },
-    { media: '(prefers-color-scheme: dark)', color: '#0d9488' },
-  ],
 
   // Icons
   icons: {
