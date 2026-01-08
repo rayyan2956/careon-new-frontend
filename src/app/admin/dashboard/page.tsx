@@ -14,13 +14,7 @@ const adminNav = [
 export default function AdminDashboard() {
   const router = useRouter();
 
-  useEffect(() => {
-    const token = getToken();
-    const user = getUser();
-    if (!token || user?.role !== 'admin') {
-      router.push('/login');
-    }
-  }, [router]);
+ 
 
   return (
     <DashboardLayout items={adminNav} title="Admin Portal">
