@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:3001';
+const API_BASE = 'https://careon-new-backend.onrender.com';
 
 interface ApiOptions {
   method?: string;
